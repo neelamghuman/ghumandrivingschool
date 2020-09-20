@@ -12,10 +12,14 @@
 
     <title>Ghuman Driving School Surrey, British Columbia</title>
     <style>
-        #menu-toggle:checked + #menu {
-          display: block;
-        }
-        .slick-slide {
+    #menu-toggle:checked + #menu {
+        display: block;
+    }
+    #menu-toggle + #menu {
+        display:none;
+    }
+    
+    .slick-slide {
       margin: 0px 5px;
     }
 
@@ -27,7 +31,6 @@
     .slick-next:before {
       color: black;
     }
-
 
     .slick-slide {
       transition: all ease-in-out .3s;
@@ -54,19 +57,23 @@
 
         <header class="fixed w-full z-30 px-6 md:px-16 py-2 bg-blue-900  flex flex-wrap items-center "><!--Nav container-->
             <div class="flex-1 flex">
-                <a class="p-2 text-blue-200" href="/">GHUMAN DRIVING SCHOOL</a>
+                <a class="p-2 text-blue-100" href="#home">GHUMAN DRIVING SCHOOL</a>
             </div>
-            <label for="menu-toggle" class="pointer-cursor md:hidden block"><svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></label>
+            <label for="menu-toggle" class="pointer-cursor md:hidden block">
+                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
             <input class="hidden" type="checkbox" id="menu-toggle" />
 
             <div id="menu" class="hidden w-full md:w-auto md:flex md:items-center">
                 <nav class="md:flex items-center justify-between">
-                    <a href="#home" class="block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded" >Home</a>
-                    <a href="#why-us" class="block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded" >Why us</a>
-                    <a href="#about" class="block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">About</a>
-                    <a href="#students" class="block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">Students</a>
-                    <a href="#reviews" class="block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">Reviews</a>
-                    <a href="#contact" class="block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">Contact</a>
+                    <a href="#home" class="menu-link block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded" >Home</a>
+                    <a href="#why-us" class="menu-link block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded" >Why us</a>
+                    <a href="#about" class="menu-link block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">About</a>
+                    <a href="#students" class="menu-link block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">Students</a>
+                    <a href="#reviews" class="menu-link block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">Reviews</a>
+                    <a href="#contact" class="menu-link block md:inline-block p-2 my-1 md:my-0 md:mr-4 text-white hover:bg-blue-600 hover:text-white rounded">Contact</a>
                 </nav> 
             </div>
             
@@ -325,6 +332,11 @@
 
 
     <script>
+        $(document).ready(function(){
+            $(".menu-link").click(function(){
+                $("#menu-toggle").click();
+            });
+        });
         $(document).ready(function(){
             // Add smooth scrolling to all links
             $("a").on('click', function(event) {
